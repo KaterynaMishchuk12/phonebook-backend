@@ -1,7 +1,7 @@
 import express from "express";
 import { registerUser } from "../controllers/userController.js";
 import { registerUserSchema } from "../schemas/userSchema.js";
-import { validateBody } from "../helpers/validateBody.js";
+import validateBody from "../helpers/validateBody.js";
 
 const usersRouter = express.Router();
 
