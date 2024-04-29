@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import HttpError from "../helpers/HttpError.js";
 import { findUserById } from "../services/userServices.js";
 
-const { SECRET_KEY } = process.env();
+const { SECRET_KEY } = process.env;
 
 export const authentification = async (req, res, next) => {
   try {

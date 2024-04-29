@@ -27,3 +27,7 @@ export const findUserById = async (id) => {
   const user = await User.findById(id);
   return user;
 };
+
+export const removeToken = async (id) => {
+  await User.findByIdAndUpdate(id, { token: "" });
+};

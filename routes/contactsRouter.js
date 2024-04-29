@@ -6,17 +6,14 @@ import {
   createContact,
   updateContact,
 } from "../controllers/contactsControllers.js";
+import { authentification } from "../middleware/authentification.js";
 
 const contactsRouter = express.Router();
 
-contactsRouter.get("/", getAllContacts);
+contactsRouter.get("/", authentification, getAllContacts);
 
-contactsRouter.get("/:id", getOneContact);
+contactsRouter.delete("/:id", authentification, deleteContact);
 
-contactsRouter.delete("/:id", deleteContact);
-
-contactsRouter.post("/", createContact);
-
-contactsRouter.put("/:id", updateContact);
+contactsRouter.post("/", authentification, createContact);
 
 export default contactsRouter;
