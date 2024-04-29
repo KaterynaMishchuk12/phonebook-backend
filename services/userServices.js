@@ -22,3 +22,8 @@ export const createUser = async (userData) => {
   const userUpdate = await updateUserToken(newUser._id);
   return userUpdate;
 };
+
+export const findUserById = async (id) => {
+  const user = await User.findById(id);
+  return user;
+};
