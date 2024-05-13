@@ -3,6 +3,7 @@ import {
   findUserByEmail,
   removeToken,
   updateUserToken,
+  updateUserName,
 } from "../services/userServices.js";
 import HttpError from "../helpers/HttpError.js";
 
@@ -73,4 +74,15 @@ export const current = (req, res) => {
   const { email, name } = req.user;
 
   res.json({ email, name });
+};
+
+export const updateName = async (req, res, next) => {
+  try {
+    const { _id } = req.user;
+    const nameUserUpdate = await updateUserName(_id, req.body);
+
+    res.json({ email: nameUserUpdate.email, name: nameUserUpdate.name });
+  } catch (error) {
+    next(error);
+  }
 };
